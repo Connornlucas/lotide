@@ -7,7 +7,7 @@ const assertEqual = function(actual, expected) {
 };
 
 // Return the first element and not as an array
-const head = function(array){
+const head = function(array) {
   return array[0];
 };
 
