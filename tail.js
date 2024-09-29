@@ -6,9 +6,9 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// We want to create a function tail, that returns the tail (every element excluding the first) as a new array, 
+// We want to create a function tail, that returns the tail (every element excluding the first) as a new array
 
-const tail = function (array) {
+const tail = function(array) {
   return array.slice(1);
 };
 
