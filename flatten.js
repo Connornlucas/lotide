@@ -23,16 +23,15 @@ const assertArraysEqual = function(array1, array2) {
 // We can youse the function Array.isArray() to help us determine
 
 const flatten = function(array) {
-  let flatArray = []
+  let flatArray = [];
   array.forEach(function(element, index) {
     if (Array.isArray(element)) {
       element.forEach(function(element2) {
-        flatArray.push(element2)
-      })
-    }
-    else flatArray.push(element)
-  })
-  return flatArray
+        flatArray.push(element2);
+      });
+    } else flatArray.push(element);
+  });
+  return flatArray;
 };
 
 console.log(flatten([1, 2, [3, 4], 5, [6]]));
