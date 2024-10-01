@@ -20,7 +20,7 @@ const assertArraysEqual = function(array1, array2) {
 
 // Middle
 // Use assertArraysEqual to test
-// Middle function should RETURN an array with only the middle elements 
+// Middle function should RETURN an array with only the middle elements
 // Arrays with 1 or 2 elements should return and empty array
 // Arrays with an odd number of elements should return 1 element
 // Arrays with an even number of elements should return 2 elements
@@ -31,10 +31,29 @@ const assertArraysEqual = function(array1, array2) {
 
 const middle = function(array) {
   let midArray = [];
-  if (array.length > 2){
-    let i = 0;
-    
+  
+  if (array.length <= 2) {
+    return midArray;
+  }
+  const i = Math.floor(array.length / 2);
+  if (array.length % 2 === 0) {
+    midArray.push(array[i - 1], array[i]);
+  } else {
+    midArray.push(array[i]);
   }
   return midArray;
-}
+};
 
+// Passing test cases
+assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
+assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
+assertArraysEqual(middle([1]), []);
+assertArraysEqual(middle([1, 2]), []);
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]), [7, 8]);
+// Failing test cases
+assertArraysEqual(middle([1, 2, 3]), [2, 3]);
+assertArraysEqual(middle([1, 2, 3, 4]), [2]);
+assertArraysEqual(middle([1, 2]), [1]);
+assertArraysEqual(middle([1, 2, 3, 4, 5]), []);
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [4]);
