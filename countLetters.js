@@ -22,7 +22,7 @@ const countLetters = function(string) {
     }
   }
   return letterCount;
-}
+};
 
 console.log(countLetters("Connor"));
 // Tests
