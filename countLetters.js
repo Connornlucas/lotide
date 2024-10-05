@@ -14,7 +14,7 @@ assertEqual("Connor", "Connor");
 const countLetters = function(string) {
   const letterCount = {};
   
-  for (letter of string.toUpperCase()) {
+  for (const letter of string.toUpperCase()) {
     if (letterCount[letter]) {
       letterCount[letter]++;
     } else {
@@ -25,3 +25,8 @@ const countLetters = function(string) {
 }
 
 console.log(countLetters("Connor"));
+// Tests
+const result = countLetters("Connor");
+assertEqual(result.N, 2);
+assertEqual(result.C, 1);
+assertEqual(result.O, 2);
