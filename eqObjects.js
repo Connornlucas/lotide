@@ -5,6 +5,18 @@ const assertEqual = function(actual, expected) {
     console.log(`🔺 Assertion Failed: ${actual} !== ${expected}`);
   }
 };
+
+const eqArrays = function(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(object1, object2) {
@@ -22,13 +34,19 @@ const eqObjects = function(object1, object2) {
   }
   return true;
 };
-
+// True Test
 const pantObject = { type: "jean", size: 32};
 const anotherPantObject = { size: 32, type: "jean"};
 assertEqual(eqObjects(pantObject, anotherPantObject), true);
-
+// Different key number test
 const longPantObject = { type: "joggers", size: 32, pantLength: 32};
 assertEqual(eqObjects(pantObject, longPantObject), false);
-
+// Different key name test
 const nicePants = { type: "dress", size: 32};
 assertEqual(eqObjects(nicePants, pantObject), false);
+// Test against and Array
+const sillyPants = { type: "jeans", color: ["blue", "black"]};
+const funnyPants = { color: ["black", "blue"], type: "jeans"};
+const crazyPants = { type: "jeans", size: 32, color: ["blue", "black"]};
+assertEqual(eqObjects(sillyPants, funnyPants), true);
+assertEqual(eqObjects(crazyPants, sillyPants), false);
