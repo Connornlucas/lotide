@@ -22,8 +22,25 @@ const assertArraysEqual = function(array1, array2) {
 assertArraysEqual(([1,2,3]), [1,2,3]);
 
 
-const letterPositions = function (sentence) {
+const letterPositions = function(sentence) {
   const results = {};
-  // logic to update results here
+  
+  for (let i = 0; i < sentence.length; i++) {
+    const letter = sentence[i];
+    if (letter === " ") {
+      continue;
+    }
+    if (results[letter]) {
+      results[letter].push(i);
+    } else {
+      results[letter] = [i];
+    }
+  }
   return results;
 };
+
+
+// Test with 'hello'
+console.log(letterPositions("hello"));
+assertArraysEqual(letterPositions("hello").e, [1]);
+assertArraysEqual(letterPositions("hello").l, [2, 3]);
