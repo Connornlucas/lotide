@@ -28,7 +28,12 @@ const eqObjects = function(object1, object2) {
     if (!(key in object2)) {
       return false;
     }
-    if (object1[key] !== object2[key]) {
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      if (eqArrays(object1[key], object2[key]) === false) {
+        return false;
+      }
+    }
+    else if (object1[key] !== object2[key]) {
       return false;
     }
   }
@@ -46,7 +51,7 @@ const nicePants = { type: "dress", size: 32};
 assertEqual(eqObjects(nicePants, pantObject), false);
 // Test against and Array
 const sillyPants = { type: "jeans", color: ["blue", "black"]};
-const funnyPants = { color: ["black", "blue"], type: "jeans"};
+const funnyPants = { color: ["blue", "black"], type: "jeans"};
 const crazyPants = { type: "jeans", size: 32, color: ["blue", "black"]};
 assertEqual(eqObjects(sillyPants, funnyPants), true);
 assertEqual(eqObjects(crazyPants, sillyPants), false);
