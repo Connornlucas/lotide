@@ -29,3 +29,6 @@ assertEqual(eqObjects(pantObject, anotherPantObject), true);
 
 const longPantObject = { type: "joggers", size: 32, pantLength: 32};
 assertEqual(eqObjects(pantObject, longPantObject), false);
+
+const nicePants = { type: "dress", size: 32};
+assertEqual(eqObjects(nicePants, pantObject), false);
