@@ -31,9 +31,9 @@ const eqArrays = function(array1, array2) {
 const assertObjectsEqual = function (object1, object2) {
   const inspect = require("util").inspect;
   if (eqObjects(object1, object2)) {
-    console.log(`🟢 Assertion Passed: ${object1} and ${object2} are equal.`);
+    console.log(`🟢 Assertion Passed: ${inspect(object1)} and ${inspect(object2)} are equal.`);
   } else {
-    console.log(`🔻 Assertion Failed: ${object1} and ${object2} are not equal.`);
+    console.log(`🔻 Assertion Failed: ${inspect(object1)} and ${inspect(object2)} are not equal.`);
   }
 };
 
